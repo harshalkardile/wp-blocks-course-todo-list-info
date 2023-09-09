@@ -29,6 +29,7 @@
 		"stylelint": "^15.10.3"
 	},
 	"dependencies": {
+		"@wordpress/data": "^9.11.0",
 		"eslint": "^8.23.0",
 		"wp-scripts": "0.0.1-security"
 	}
