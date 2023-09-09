@@ -4,38 +4,38 @@ import { useSelect } from '@wordpress/data';
 import './editor.scss';
 
 export default function Edit() {
-	const data = useSelect((select) => {
-		const store = select('blocks-course/todos');
-		if (!store) return null;
+	const data = useSelect( ( select ) => {
+		const store = select( 'blocks-course/todos' );
+		if ( ! store ) return null;
 		return {
 			total: store.getTodosNumber(),
 			done: store.getDoneTodos(),
 			undone: store.getUnDoneTodos(),
 		};
-	});
+	} );
 	return (
-		<div {...useBlockProps()}>
-			{!data && (
+		<div { ...useBlockProps() }>
+			{ ! data && (
 				<p>
-					{__(
+					{ __(
 						'Please make sure the plugin is active.',
 						'todo-list-info'
-					)}
+					) }
 				</p>
-			)}
-			{data && (
+			) }
+			{ data && (
 				<ul>
 					<li>
-						{__('Done:', 'todo-list-info')} {data.done}
+						{ __( 'Done:', 'todo-list-info' ) } { data.done }
 					</li>
 					<li>
-						{__('Un-Done:', 'todo-list-info')} {data.undone}
+						{ __( 'Un-Done:', 'todo-list-info' ) } { data.undone }
 					</li>
 					<li>
-						{__('Total:', 'todo-list-info')} {data.total}
+						{ __( 'Total:', 'todo-list-info' ) } { data.total }
 					</li>
 				</ul>
-			)}
+			) }
 		</div>
 	);
 }
